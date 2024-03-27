@@ -1,0 +1,8 @@
+element_shadowtext	element_shadowtext
+GeomShadowText	ggproto-shadowtext
+GeomShadowtext	ggproto-shadowtext
+geom_shadowtext	geom_shadowtext
+gpar	reexports
+grid.shadowtext	shadowtextGrob
+reexports	reexports
+shadowtextGrob	shadowtextGrob

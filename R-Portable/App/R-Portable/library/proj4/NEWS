@@ -1,0 +1,87 @@
+NEWS/ChangeLog for proj4 R package
+
+1.0-12	2022-11-30
+    *	switch UCRT Windows flags to use PROJ6 API
+
+1.0-11	2022-01-31
+    *	improve detection of correct flags using pkg-config where
+	available including static versions. Unless --enable-proj6
+	is used it will use proj4 API if avaiable.
+
+    *	add support for UCRT Windows builds
+
+1.0-10.1 (CRAN NMU, Brian Ripley)
+    *	force C++ in configure tests
+
+1.0-10	2020-03-03
+    *	remove dead links from the documentation
+
+1.0-9	2020-03-02
+    *	update proj4 to support PROJ5 and PROJ6. Given all the issues
+	with the new PROJ6 API we try to use PROJ4 API wherever
+	possible. It is, however, possible to force the use of PROJ6
+	API even if PROJ4 is available by specifying --enable-proj6
+	configure flag. This should be only used with caution as it
+	may have adverse effects on the projection results.
+
+	When PROJ6 API is used, we are applying a heuristic
+	in ptransform() to try to detect whether degrees are expected
+	by PROJ6 instead of radians previously and will convert
+	coordinates automatically to preserve the PROJ4 behavior.
+
+    *	use NAMESPACE C symbol registration
+
+    *	2x2 input in project() was ambiguous, it is now defined
+	that columns are taken as x and y. Note that previously
+	rows were taken which is unintuitive and could lead to bugs
+	that are hard to detect.
+
+1.0-8	2012-08-04
+    *	remove Windows binaries from the source package, respect
+	LOCAL_SOFT environment variable to use local copy,
+	otherwise fetch Windows binaries from RForge.net
+
+1.0-7	2011-12-10
+    *	use R's CPPFLAGS and LDFLAGS for testing in configure,
+	addressing issues on systems with non-default proj4
+	location which is known by R.
+
+1.0-6	2011-01-31
+    *	Update bundled PROJ.4 library for Windows to 4.7.0 and
+	include both 32-bit and 64-bit binaries
+	(there is no change to the package itself)
+
+1.0-5	2011-01-16
+    *	fixed a minor typo in the docs
+
+    *	changed license specification from verbatim form to
+	a form that R likes better
+
+1.0-4	2007-06-08
+    *	add ellps.default to project() (PROJ4.5.0 always requires an
+	ellipsoid or datum)
+
+    *	fix examples to work with PROJ4.5.0
+
+1.0-3	2007-06-06
+    *	add Windows support
+
+1.0-2
+    *	update documentation
+
+    *	add support for datum transformation via ptransform()
+
+1.0-1
+    *	add a namespace
+
+    *	allow projection parameters to be specified in a more flexible
+	way including a named vector c(proj='utm',zone=15), a
+	list list(proj='utm',zone=15) and an unnamed arguments
+	vector c('+proj=utm','+zone=15').
+
+1.0-0
+    *	initial version (an intereface to pj_fwd and pj_inv)
+
+
+Note for Windows: This package contains a static proj4.7.0 binary for
+Windows. The NAD files are expected to be installed in c:\proj

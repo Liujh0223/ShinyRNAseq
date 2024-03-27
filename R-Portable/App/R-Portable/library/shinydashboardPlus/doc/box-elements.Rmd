@@ -1,0 +1,91 @@
+---
+title: "Box Elements"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Box Elements}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Boxes components
+
+`{shinydashboardPlus}` brings tons of new elements to include in boxes or elsewhere. Some of them has partially been described in the previous vignette.
+
+<br>
+
+<div style="text-align:center;"><a href="improved-boxes.html" class="btn btn-outline-secondary btn-lg">Go to previous vignette</a></div>
+
+
+### Description Block
+
+`descriptionBlock()` is a sub-container that may be included in any `box()`. 
+It is convenient to display metrics. 
+
+```{r descriptionBlock-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+ shinyApp(
+  ui = dashboardPage(
+    dashboardHeader(),
+    dashboardSidebar(),
+    dashboardBody(
+     box(
+      solidHeader = FALSE,
+      title = "Status summary",
+      background = NULL,
+      width = 4,
+      status = "danger",
+      footer = fluidRow(
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "17%", 
+            numberColor = "green", 
+            numberIcon = icon("caret-up"),
+            header = "$35,210.43", 
+            text = "TOTAL REVENUE", 
+            rightBorder = TRUE,
+            marginBottom = FALSE
+          )
+        ),
+        column(
+          width = 6,
+          descriptionBlock(
+            number = "18%", 
+            numberColor = "red", 
+            numberIcon = icon("caret-down"),
+            header = "1200", 
+            text = "GOAL COMPLETION", 
+            rightBorder = FALSE,
+            marginBottom = FALSE
+          )
+        )
+      )
+     )
+    ),
+    title = "Description Block"
+  ),
+  server = function(input, output) { }
+ )
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-descriptionBlock/" allowfullscreen="" frameborder="0" scrolling="no" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>
+
+
+### Coming soon ...

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="David Granjon" />
+
+<meta name="date" content="2021-09-15" />
+
+<title>Extra Skeleton Elements</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Extra Skeleton Elements</h1>
+<h4 class="author">David Granjon</h4>
+<h4 class="date">2021-09-15</h4>
+
+
+
+<div id="extra-template-elements" class="section level2">
+<h2>Extra template elements</h2>
+<p><code>{shinydashboard}</code> skeleton elements are :</p>
+<ul>
+<li><code>dashboardPage()</code> (page wrapper)</li>
+<li><code>dashboardHeader()</code> (navbar)</li>
+<li><code>dashboardSidebar()</code> (left sidebar)</li>
+</ul>
+<p>However, AdminLTE has a footer and a right sidebar, also known as controlbar. The footer is usually a good place to put contact information like mail, authors and copyrights, while the controlbar may contain secondary inputs or extra options that are not necessary to be shown in the app.</p>
+<div id="controlbar" class="section level3">
+<h3>Controlbar</h3>
+<div id="basics" class="section level4">
+<h4>Basics</h4>
+<p>To include the controlbar, use <code>dashboardControlbar()</code> in the dedicated <em>controlbar</em> parameter. It has several options:</p>
+<ul>
+<li>id is used to capture the current state of the controlbar (open or closed) and to programmatically toggle it with <code>updateControlbar()</code>. This is useful if the controlbar would have to open as a result of another action, to indicate users they have to play with it</li>
+<li>collapsed indicated whether the sidebar is opened or closed at start</li>
+<li>overlay controls the collapse behavior, that is whether the controlbar has to push the body content to the left. By default, it will cover the body content. Note that you may also control this behavior via the <code>dashboardPagge()</code> <em>option</em> parameter!</li>
+<li>skin is a cosmetic parameter with 2 values: dark or light with a default value to dark. Importantly, the global theme option do not impact the controlbar background</li>
+</ul>
+<p>The app below will show an open controlbar at start.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(shinydashboard)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(shinydashboardPlus)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">shinyApp</span>(</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="dt">header =</span> <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="dt">sidebar =</span> <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="dt">body =</span> <span class="kw">dashboardBody</span>(),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="dt">controlbar =</span> <span class="kw">dashboardControlbar</span>(<span class="dt">collapsed =</span> <span class="ot">FALSE</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="dt">title =</span> <span class="st">&quot;DashboardPage&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  ),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</span>
+<span id="cb1-13"><a href="#cb1-13"></a>)</span></code></pre></div>
+</div>
+<div id="include-menus" class="section level4">
+<h4>Include menus</h4>
+<p>The <code>dashboardControlbar</code> function also accepts to contain tabs, similarly to the <code>dashboardSidebar()</code> navigation menu. <code>controlbarMenu()</code> is a modified <code>shiny::tabsetPanel()</code> that has an optional <em>id</em> to control the select item on the server side with <code>updateControlbarMenu()</code>. <em>selected</em> indicates which item must be selected by default. Below is a use case of the controlbar menu:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>menu &lt;-<span class="st"> </span><span class="kw">controlbarMenu</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">id =</span> <span class="st">&quot;controlbarMenu&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">controlbarItem</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">&quot;Tab 1&quot;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="st">&quot;Welcome to tab 1&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  ),</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="kw">controlbarItem</span>(</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="st">&quot;Tab 2&quot;</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="kw">numericInput</span>(<span class="st">&quot;num&quot;</span>, <span class="st">&quot;Observations:&quot;</span>, <span class="dv">200</span>, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">1000</span>, <span class="dt">step =</span> <span class="dv">100</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>  )</span>
+<span id="cb2-11"><a href="#cb2-11"></a>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="kw">shinyApp</span>(</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="dt">header =</span> <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="dt">sidebar =</span> <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="dt">body =</span> <span class="kw">dashboardBody</span>(),</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="dt">controlbar =</span> <span class="kw">dashboardControlbar</span>(</span>
+<span id="cb2-19"><a href="#cb2-19"></a>      <span class="dt">skin =</span> <span class="st">&quot;dark&quot;</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>      menu</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    ),</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="dt">title =</span> <span class="st">&quot;Right Sidebar&quot;</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  ),</span>
+<span id="cb2-24"><a href="#cb2-24"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</span>
+<span id="cb2-25"><a href="#cb2-25"></a>)</span></code></pre></div>
+<p>It is best practice to limit the number of <code>controlbarItem</code> to 5 since the horizontal space is rather limited.</p>
+</div>
+<div id="the-controlbar-api" class="section level4">
+<h4>The controlbar API</h4>
+<p>As mentioned above, the most powerful feature is the possibility to control elements on the server. In the example below, the main sidebar has 3 items, each item will open a specific menu item in the controlbar.</p>
+<p>We first create 3 generic sidebar menu items using <code>lapply</code>. Note that the controlbar menu is defined above in the previous example.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">sidebarMenu</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">id =</span> <span class="st">&quot;sidebarMenu&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="cf">function</span>(i) {</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="kw">menuItem</span>(</span>
+<span id="cb3-5"><a href="#cb3-5"></a>      <span class="kw">sprintf</span>(<span class="st">&quot;Menu %s&quot;</span>, i), </span>
+<span id="cb3-6"><a href="#cb3-6"></a>      <span class="dt">tabName =</span> <span class="kw">sprintf</span>(<span class="st">&quot;menu_%s&quot;</span>, i), </span>
+<span id="cb3-7"><a href="#cb3-7"></a>      <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    )</span>
+<span id="cb3-9"><a href="#cb3-9"></a>  })</span>
+<span id="cb3-10"><a href="#cb3-10"></a>)</span></code></pre></div>
+<p><code>input$sidebarMenu</code> takes values in <code>menu_1</code>, <code>menu_2</code> and <code>menu_3</code>. On the server side, we only recover the item index by splitting the input value as follows <code>strsplit(input$sidebarMenu, &quot;_&quot;)[[1]][2]</code>. Then we may conditionally open the controlbar depending on the index value. The update controlbar menu function will update the controlbar menu item according to the index value, that is <code>updateControlbarMenu(&quot;controlbarMenu&quot;, selected = idx)</code>.</p>
+<p>To include even more interactivity, we listen to <code>input$controlbarMenu</code>. When the second item is clicked, we toggle the box sidebar with <code>updateBoxSidebar(&quot;boxSidebar&quot;)</code>.</p>
+<p>In conclusion, you may imagine a lot of other situations.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">shinyApp</span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="dt">header =</span> <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="dt">sidebar =</span> <span class="kw">dashboardSidebar</span>(</span>
+<span id="cb4-5"><a href="#cb4-5"></a>      <span class="dt">minified =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb4-6"><a href="#cb4-6"></a>      <span class="dt">collapsed =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>      <span class="kw">sidebarMenu</span>(</span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="dt">id =</span> <span class="st">&quot;sidebarMenu&quot;</span>,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        <span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="cf">function</span>(i) {</span>
+<span id="cb4-10"><a href="#cb4-10"></a>          <span class="kw">menuItem</span>(</span>
+<span id="cb4-11"><a href="#cb4-11"></a>            <span class="kw">sprintf</span>(<span class="st">&quot;Menu %s&quot;</span>, i), </span>
+<span id="cb4-12"><a href="#cb4-12"></a>            <span class="dt">tabName =</span> <span class="kw">sprintf</span>(<span class="st">&quot;menu_%s&quot;</span>, i), </span>
+<span id="cb4-13"><a href="#cb4-13"></a>            <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">&quot;circle&quot;</span>)</span>
+<span id="cb4-14"><a href="#cb4-14"></a>          )</span>
+<span id="cb4-15"><a href="#cb4-15"></a>        })</span>
+<span id="cb4-16"><a href="#cb4-16"></a>      )</span>
+<span id="cb4-17"><a href="#cb4-17"></a>    ),</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="dt">body =</span> <span class="kw">dashboardBody</span>(</span>
+<span id="cb4-19"><a href="#cb4-19"></a>      <span class="kw">tabItems</span>(</span>
+<span id="cb4-20"><a href="#cb4-20"></a>        <span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;menu_1&quot;</span>, <span class="st">&quot;Content 1&quot;</span>), </span>
+<span id="cb4-21"><a href="#cb4-21"></a>        <span class="kw">tabItem</span>(</span>
+<span id="cb4-22"><a href="#cb4-22"></a>          <span class="dt">tabName =</span> <span class="st">&quot;menu_2&quot;</span>,</span>
+<span id="cb4-23"><a href="#cb4-23"></a>          <span class="kw">box</span>(</span>
+<span id="cb4-24"><a href="#cb4-24"></a>            <span class="dt">title =</span> <span class="st">&quot;Always the same plot!&quot;</span>,</span>
+<span id="cb4-25"><a href="#cb4-25"></a>            <span class="dt">collapsible =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb4-26"><a href="#cb4-26"></a>            <span class="kw">plotOutput</span>(<span class="st">&quot;distPlot&quot;</span>),</span>
+<span id="cb4-27"><a href="#cb4-27"></a>            <span class="dt">sidebar =</span> <span class="kw">boxSidebar</span>(</span>
+<span id="cb4-28"><a href="#cb4-28"></a>              <span class="dt">id =</span> <span class="st">&quot;boxSidebar&quot;</span>,</span>
+<span id="cb4-29"><a href="#cb4-29"></a>              <span class="dt">background =</span> <span class="st">&quot;#808080&quot;</span>,</span>
+<span id="cb4-30"><a href="#cb4-30"></a>              <span class="dt">width =</span> <span class="st">&quot;50%&quot;</span>,</span>
+<span id="cb4-31"><a href="#cb4-31"></a>              <span class="kw">sliderInput</span>(</span>
+<span id="cb4-32"><a href="#cb4-32"></a>                <span class="st">&quot;obs&quot;</span>, </span>
+<span id="cb4-33"><a href="#cb4-33"></a>                <span class="st">&quot;Number of observations:&quot;</span>,</span>
+<span id="cb4-34"><a href="#cb4-34"></a>                <span class="dt">min =</span> <span class="dv">0</span>,</span>
+<span id="cb4-35"><a href="#cb4-35"></a>                <span class="dt">max =</span> <span class="dv">1000</span>, </span>
+<span id="cb4-36"><a href="#cb4-36"></a>                <span class="dt">value =</span> <span class="dv">500</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>              )</span>
+<span id="cb4-38"><a href="#cb4-38"></a>            )</span>
+<span id="cb4-39"><a href="#cb4-39"></a>          )</span>
+<span id="cb4-40"><a href="#cb4-40"></a>        )</span>
+<span id="cb4-41"><a href="#cb4-41"></a>      )</span>
+<span id="cb4-42"><a href="#cb4-42"></a>    ),</span>
+<span id="cb4-43"><a href="#cb4-43"></a>    <span class="dt">controlbar =</span> <span class="kw">dashboardControlbar</span>(</span>
+<span id="cb4-44"><a href="#cb4-44"></a>      <span class="dt">id =</span> <span class="st">&quot;controlbar&quot;</span>,</span>
+<span id="cb4-45"><a href="#cb4-45"></a>      menu</span>
+<span id="cb4-46"><a href="#cb4-46"></a>    ),</span>
+<span id="cb4-47"><a href="#cb4-47"></a>    <span class="dt">title =</span> <span class="st">&quot;DashboardPage&quot;</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>  ),</span>
+<span id="cb4-49"><a href="#cb4-49"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb4-50"><a href="#cb4-50"></a>    output<span class="op">$</span>distPlot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</span>
+<span id="cb4-51"><a href="#cb4-51"></a>      <span class="kw">hist</span>(<span class="kw">rnorm</span>(input<span class="op">$</span>obs))</span>
+<span id="cb4-52"><a href="#cb4-52"></a>    })</span>
+<span id="cb4-53"><a href="#cb4-53"></a>    <span class="co"># Switch controlbar menu based on sidebar item value. Moreover</span></span>
+<span id="cb4-54"><a href="#cb4-54"></a>    <span class="co"># if the sidebar menu item is 2, the controlbar opens</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>sidebarMenu, {</span>
+<span id="cb4-56"><a href="#cb4-56"></a>      idx &lt;-<span class="st"> </span><span class="kw">strsplit</span>(input<span class="op">$</span>sidebarMenu, <span class="st">&quot;_&quot;</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</span>
+<span id="cb4-57"><a href="#cb4-57"></a>      <span class="cf">if</span> (idx <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {</span>
+<span id="cb4-58"><a href="#cb4-58"></a>        <span class="kw">updateControlbar</span>(<span class="st">&quot;controlbar&quot;</span>)</span>
+<span id="cb4-59"><a href="#cb4-59"></a>      }</span>
+<span id="cb4-60"><a href="#cb4-60"></a>      <span class="kw">updateControlbarMenu</span>(<span class="st">&quot;controlbarMenu&quot;</span>, <span class="dt">selected =</span> idx)</span>
+<span id="cb4-61"><a href="#cb4-61"></a>    })</span>
+<span id="cb4-62"><a href="#cb4-62"></a>    </span>
+<span id="cb4-63"><a href="#cb4-63"></a>    <span class="co"># Clicking on the second controlbar item makes the box sidebar open</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>controlbarMenu, {</span>
+<span id="cb4-65"><a href="#cb4-65"></a>      <span class="cf">if</span> (input<span class="op">$</span>controlbarMenu <span class="op">==</span><span class="st"> &quot;Tab 2&quot;</span>) <span class="kw">updateBoxSidebar</span>(<span class="st">&quot;boxSidebar&quot;</span>)</span>
+<span id="cb4-66"><a href="#cb4-66"></a>    })</span>
+<span id="cb4-67"><a href="#cb4-67"></a>    </span>
+<span id="cb4-68"><a href="#cb4-68"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>num, {</span>
+<span id="cb4-69"><a href="#cb4-69"></a>      <span class="kw">updateSliderInput</span>(session, <span class="st">&quot;obs&quot;</span>, <span class="dt">value =</span> input<span class="op">$</span>num)</span>
+<span id="cb4-70"><a href="#cb4-70"></a>    }, <span class="dt">ignoreInit =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb4-71"><a href="#cb4-71"></a>    </span>
+<span id="cb4-72"><a href="#cb4-72"></a>  }</span>
+<span id="cb4-73"><a href="#cb4-73"></a>)</span></code></pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-controlbar-api/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
+</div>
+</div>
+<div id="footer" class="section level3">
+<h3>Footer</h3>
+<p>Not surprisingly <code>dashboardFooter()</code> creates a footer element. It has 2 slots, left and right, respectively.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">shinyApp</span>(</span>
+<span id="cb5-2"><a href="#cb5-2"></a>   <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb5-3"><a href="#cb5-3"></a>     <span class="dt">header =</span> <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb5-4"><a href="#cb5-4"></a>     <span class="dt">sidebar =</span> <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb5-5"><a href="#cb5-5"></a>     <span class="dt">body =</span> <span class="kw">dashboardBody</span>(),</span>
+<span id="cb5-6"><a href="#cb5-6"></a>     <span class="dt">footer =</span> <span class="kw">dashboardFooter</span>(<span class="dt">left =</span> <span class="st">&quot;Left content&quot;</span>, <span class="dt">right =</span> <span class="st">&quot;Right content&quot;</span>),</span>
+<span id="cb5-7"><a href="#cb5-7"></a>     <span class="dt">title =</span> <span class="st">&quot;DashboardPage&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>   ),</span>
+<span id="cb5-9"><a href="#cb5-9"></a>   <span class="dt">server =</span> <span class="cf">function</span>(input, output) { }</span>
+<span id="cb5-10"><a href="#cb5-10"></a> )</span></code></pre></div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

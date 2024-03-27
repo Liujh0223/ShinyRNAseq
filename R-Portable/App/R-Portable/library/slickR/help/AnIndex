@@ -1,0 +1,11 @@
+%stack%	slick_combine
+%synch%	slick_combine
+nba_player_logo	nba_player_logo
+nba_team_logo	nba_team_logo
+renderSlickR	slickR-shiny
+settings	settings
+slickR	slickR
+slickR-shiny	slickR-shiny
+slickROutput	slickR-shiny
+slick_div	slick_div
+slick_list	slick_list

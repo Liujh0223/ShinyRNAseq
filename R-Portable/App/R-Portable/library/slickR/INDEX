@@ -1,0 +1,8 @@
+%synch%                 Slick pipe operators
+nba_player_logo         NBA player logo
+nba_team_logo           NBA team logo
+settings                Modify components of slick settings
+slickR                  slick.js image carousel htmlwidget
+slickR-shiny            Shiny bindings for slickR
+slick_div               Create a DOM element for slickR
+slick_list              List of DOM elements

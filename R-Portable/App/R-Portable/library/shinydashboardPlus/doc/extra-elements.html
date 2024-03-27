@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="David Granjon" />
+
+
+<title>Extra Elements</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Extra Elements</h1>
+<h4 class="author">David Granjon</h4>
+<h4 class="date">9/21/2020</h4>
+
+
+
+<div id="accordion" class="section level2">
+<h2>Accordion</h2>
+<p>Accordions are a category of collapsible elements. While collapsible items don’t alter the state of other items in the same collapsible container, each accordion item will toggle any other opened accordion, to ensure that only 1 item is visible at once. <code>accordion()</code> expects to contain <code>accordionItems</code>. Importantly, to guaranty the uniqueness of each accordion, we must provide an <em>id</em> parameter. This parameter allows to programmatically toggle any accordion item, through an <code>updateAccordion</code> function.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(shiny)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(shinydashboard)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(shinydashboardPlus)</span>
+<span id="cb1-4"><a href="#cb1-4"></a> <span class="kw">shinyApp</span>(</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="kw">dashboardBody</span>(</span>
+<span id="cb1-9"><a href="#cb1-9"></a>      <span class="kw">radioButtons</span>(<span class="st">&quot;controller&quot;</span>, <span class="st">&quot;Controller&quot;</span>, <span class="dt">choices =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>      <span class="kw">br</span>(),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>      <span class="kw">accordion</span>(</span>
+<span id="cb1-12"><a href="#cb1-12"></a>       <span class="dt">id =</span> <span class="st">&quot;accordion1&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        <span class="kw">accordionItem</span>(</span>
+<span id="cb1-14"><a href="#cb1-14"></a>          <span class="dt">title =</span> <span class="st">&quot;Accordion 1 Item 1&quot;</span>,</span>
+<span id="cb1-15"><a href="#cb1-15"></a>          <span class="dt">status =</span> <span class="st">&quot;danger&quot;</span>,</span>
+<span id="cb1-16"><a href="#cb1-16"></a>          <span class="dt">collapsed =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>          <span class="st">&quot;This is some text!&quot;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>        ),</span>
+<span id="cb1-19"><a href="#cb1-19"></a>        <span class="kw">accordionItem</span>(</span>
+<span id="cb1-20"><a href="#cb1-20"></a>          <span class="dt">title =</span> <span class="st">&quot;Accordion 1 Item 2&quot;</span>,</span>
+<span id="cb1-21"><a href="#cb1-21"></a>          <span class="dt">status =</span> <span class="st">&quot;warning&quot;</span>,</span>
+<span id="cb1-22"><a href="#cb1-22"></a>          <span class="dt">collapsed =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb1-23"><a href="#cb1-23"></a>          <span class="st">&quot;This is some text!&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>        )</span>
+<span id="cb1-25"><a href="#cb1-25"></a>      ),</span>
+<span id="cb1-26"><a href="#cb1-26"></a>      <span class="kw">accordion</span>(</span>
+<span id="cb1-27"><a href="#cb1-27"></a>       <span class="dt">id =</span> <span class="st">&quot;accordion2&quot;</span>,</span>
+<span id="cb1-28"><a href="#cb1-28"></a>        <span class="kw">accordionItem</span>(</span>
+<span id="cb1-29"><a href="#cb1-29"></a>          <span class="dt">title =</span> <span class="st">&quot;Accordion 2 Item 1&quot;</span>,</span>
+<span id="cb1-30"><a href="#cb1-30"></a>          <span class="dt">status =</span> <span class="st">&quot;info&quot;</span>,</span>
+<span id="cb1-31"><a href="#cb1-31"></a>          <span class="dt">collapsed =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb1-32"><a href="#cb1-32"></a>          <span class="st">&quot;This is some text!&quot;</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>        ),</span>
+<span id="cb1-34"><a href="#cb1-34"></a>        <span class="kw">accordionItem</span>(</span>
+<span id="cb1-35"><a href="#cb1-35"></a>          <span class="dt">title =</span> <span class="st">&quot;Accordion 2 Item 2&quot;</span>,</span>
+<span id="cb1-36"><a href="#cb1-36"></a>          <span class="dt">status =</span> <span class="st">&quot;success&quot;</span>,</span>
+<span id="cb1-37"><a href="#cb1-37"></a>          <span class="dt">collapsed =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb1-38"><a href="#cb1-38"></a>          <span class="st">&quot;This is some text!&quot;</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a>        )</span>
+<span id="cb1-40"><a href="#cb1-40"></a>      )</span>
+<span id="cb1-41"><a href="#cb1-41"></a>    ),</span>
+<span id="cb1-42"><a href="#cb1-42"></a>    <span class="dt">title =</span> <span class="st">&quot;Accordion&quot;</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  ),</span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>controller, {</span>
+<span id="cb1-46"><a href="#cb1-46"></a>      <span class="kw">updateAccordion</span>(<span class="dt">id =</span> <span class="st">&quot;accordion1&quot;</span>, <span class="dt">selected =</span> input<span class="op">$</span>controller)</span>
+<span id="cb1-47"><a href="#cb1-47"></a>    })</span>
+<span id="cb1-48"><a href="#cb1-48"></a>    </span>
+<span id="cb1-49"><a href="#cb1-49"></a>    <span class="kw">observe</span>(<span class="kw">print</span>(input<span class="op">$</span>accordion1))</span>
+<span id="cb1-50"><a href="#cb1-50"></a>    </span>
+<span id="cb1-51"><a href="#cb1-51"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>accordion1, {</span>
+<span id="cb1-52"><a href="#cb1-52"></a>      <span class="kw">showNotification</span>(<span class="kw">sprintf</span>(<span class="st">&quot;You selected accordion N° %s&quot;</span>, input<span class="op">$</span>accordion1), <span class="dt">type =</span> <span class="st">&quot;message&quot;</span>)</span>
+<span id="cb1-53"><a href="#cb1-53"></a>    })</span>
+<span id="cb1-54"><a href="#cb1-54"></a>  }</span>
+<span id="cb1-55"><a href="#cb1-55"></a> )</span></code></pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-accordions/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
+</div>
+<div id="user-messages" class="section level2">
+<h2>User messages</h2>
+<p><code>{shinydashboardPlus}</code> make it possible to create an entire chat system within a Shiny app. <code>userMessages()</code> is the main container, <code>userMessage()</code> being the message element. <code>updateUserMessages()</code> looks for the <code>userMessages()</code> <em>id</em> so as to:</p>
+<ul>
+<li>remove an existing message</li>
+<li>add a new message</li>
+<li>edit an existing message</li>
+</ul>
+<p>Importantly, we assume that a message structure is composed as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">list</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="dt">author =</span> <span class="st">&quot;David&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="dt">date =</span> <span class="st">&quot;Now&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="dt">image =</span> <span class="st">&quot;https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg&quot;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="dt">type =</span> <span class="st">&quot;received&quot;</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="dt">text =</span> <span class="kw">tagList</span>(</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="kw">sliderInput</span>(</span>
+<span id="cb2-8"><a href="#cb2-8"></a>      <span class="st">&quot;obs&quot;</span>, </span>
+<span id="cb2-9"><a href="#cb2-9"></a>      <span class="st">&quot;Number of observations:&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>      <span class="dt">min =</span> <span class="dv">0</span>, </span>
+<span id="cb2-11"><a href="#cb2-11"></a>      <span class="dt">max =</span> <span class="dv">1000</span>, </span>
+<span id="cb2-12"><a href="#cb2-12"></a>      <span class="dt">value =</span> <span class="dv">500</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    ),</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="kw">plotOutput</span>(<span class="st">&quot;distPlot&quot;</span>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  )</span></code></pre></div>
+<p>The <em>type</em> parameter controls the message background color. For a sent message, the color is inherited from the <code>userMessages()</code> status, while for a received message, the color is gray by default. The <em>text</em> argument refers to the message content. It may be simple text, shiny tags or event any combinations of shiny inputs/ouput, as shown in the below example.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">shinyApp</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">ui =</span> <span class="kw">dashboardPage</span>(</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw">dashboardHeader</span>(),</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="kw">dashboardSidebar</span>(),</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="kw">dashboardBody</span>(</span>
+<span id="cb3-6"><a href="#cb3-6"></a>      <span class="kw">fluidRow</span>(</span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="kw">actionButton</span>(<span class="st">&quot;remove&quot;</span>, <span class="st">&quot;Remove message&quot;</span>),</span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="kw">actionButton</span>(<span class="st">&quot;add&quot;</span>, <span class="st">&quot;Add message&quot;</span>),</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="kw">actionButton</span>(<span class="st">&quot;update&quot;</span>, <span class="st">&quot;Update message&quot;</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      ),</span>
+<span id="cb3-11"><a href="#cb3-11"></a>      <span class="kw">numericInput</span>(<span class="st">&quot;index&quot;</span>, <span class="st">&quot;Message index:&quot;</span>, <span class="dv">1</span>, <span class="dt">min =</span> <span class="dv">1</span>, <span class="dt">max =</span> <span class="dv">3</span>),</span>
+<span id="cb3-12"><a href="#cb3-12"></a>      <span class="kw">br</span>(),</span>
+<span id="cb3-13"><a href="#cb3-13"></a>      <span class="kw">br</span>(),</span>
+<span id="cb3-14"><a href="#cb3-14"></a>      <span class="kw">userMessages</span>(</span>
+<span id="cb3-15"><a href="#cb3-15"></a>        <span class="dt">width =</span> <span class="dv">6</span>,</span>
+<span id="cb3-16"><a href="#cb3-16"></a>        <span class="dt">status =</span> <span class="st">&quot;danger&quot;</span>,</span>
+<span id="cb3-17"><a href="#cb3-17"></a>        <span class="dt">id =</span> <span class="st">&quot;message&quot;</span>,</span>
+<span id="cb3-18"><a href="#cb3-18"></a>        <span class="kw">userMessage</span>(</span>
+<span id="cb3-19"><a href="#cb3-19"></a>          <span class="dt">author =</span> <span class="st">&quot;Alexander Pierce&quot;</span>,</span>
+<span id="cb3-20"><a href="#cb3-20"></a>          <span class="dt">date =</span> <span class="st">&quot;20 Jan 2:00 pm&quot;</span>,</span>
+<span id="cb3-21"><a href="#cb3-21"></a>          <span class="dt">image =</span> <span class="st">&quot;https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg&quot;</span>,</span>
+<span id="cb3-22"><a href="#cb3-22"></a>          <span class="dt">type =</span> <span class="st">&quot;received&quot;</span>,</span>
+<span id="cb3-23"><a href="#cb3-23"></a>          <span class="st">&quot;Is this template really for free? That&#39;s unbelievable!&quot;</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>        ),</span>
+<span id="cb3-25"><a href="#cb3-25"></a>        <span class="kw">userMessage</span>(</span>
+<span id="cb3-26"><a href="#cb3-26"></a>          <span class="dt">author =</span> <span class="st">&quot;Sarah Bullock&quot;</span>,</span>
+<span id="cb3-27"><a href="#cb3-27"></a>          <span class="dt">date =</span> <span class="st">&quot;23 Jan 2:05 pm&quot;</span>,</span>
+<span id="cb3-28"><a href="#cb3-28"></a>          <span class="dt">image =</span> <span class="st">&quot;https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg&quot;</span>,</span>
+<span id="cb3-29"><a href="#cb3-29"></a>          <span class="dt">type =</span> <span class="st">&quot;sent&quot;</span>,</span>
+<span id="cb3-30"><a href="#cb3-30"></a>          <span class="st">&quot;You better believe it!&quot;</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>        )</span>
+<span id="cb3-32"><a href="#cb3-32"></a>      )</span>
+<span id="cb3-33"><a href="#cb3-33"></a>    ),</span>
+<span id="cb3-34"><a href="#cb3-34"></a>    <span class="dt">title =</span> <span class="st">&quot;user Message&quot;</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>  ),</span>
+<span id="cb3-36"><a href="#cb3-36"></a>  <span class="dt">server =</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb3-37"><a href="#cb3-37"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>remove, {</span>
+<span id="cb3-38"><a href="#cb3-38"></a>      <span class="kw">updateUserMessages</span>(<span class="st">&quot;message&quot;</span>, <span class="dt">action =</span> <span class="st">&quot;remove&quot;</span>, <span class="dt">index =</span> input<span class="op">$</span>index)</span>
+<span id="cb3-39"><a href="#cb3-39"></a>    })</span>
+<span id="cb3-40"><a href="#cb3-40"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>add, {</span>
+<span id="cb3-41"><a href="#cb3-41"></a>      <span class="kw">updateUserMessages</span>(</span>
+<span id="cb3-42"><a href="#cb3-42"></a>        <span class="st">&quot;message&quot;</span>, </span>
+<span id="cb3-43"><a href="#cb3-43"></a>        <span class="dt">action =</span> <span class="st">&quot;add&quot;</span>, </span>
+<span id="cb3-44"><a href="#cb3-44"></a>        <span class="dt">content =</span> <span class="kw">list</span>(</span>
+<span id="cb3-45"><a href="#cb3-45"></a>          <span class="dt">author =</span> <span class="st">&quot;David&quot;</span>,</span>
+<span id="cb3-46"><a href="#cb3-46"></a>          <span class="dt">date =</span> <span class="st">&quot;Now&quot;</span>,</span>
+<span id="cb3-47"><a href="#cb3-47"></a>          <span class="dt">image =</span> <span class="st">&quot;https://i.pinimg.com/originals/f1/15/df/f115dfc9cab063597b1221d015996b39.jpg&quot;</span>,</span>
+<span id="cb3-48"><a href="#cb3-48"></a>          <span class="dt">type =</span> <span class="st">&quot;received&quot;</span>,</span>
+<span id="cb3-49"><a href="#cb3-49"></a>          <span class="dt">text =</span> <span class="kw">tagList</span>(</span>
+<span id="cb3-50"><a href="#cb3-50"></a>           <span class="kw">sliderInput</span>(</span>
+<span id="cb3-51"><a href="#cb3-51"></a>            <span class="st">&quot;obs&quot;</span>, </span>
+<span id="cb3-52"><a href="#cb3-52"></a>            <span class="st">&quot;Number of observations:&quot;</span>,</span>
+<span id="cb3-53"><a href="#cb3-53"></a>            <span class="dt">min =</span> <span class="dv">0</span>, </span>
+<span id="cb3-54"><a href="#cb3-54"></a>            <span class="dt">max =</span> <span class="dv">1000</span>, </span>
+<span id="cb3-55"><a href="#cb3-55"></a>            <span class="dt">value =</span> <span class="dv">500</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a>           ),</span>
+<span id="cb3-57"><a href="#cb3-57"></a>           <span class="kw">plotOutput</span>(<span class="st">&quot;distPlot&quot;</span>)</span>
+<span id="cb3-58"><a href="#cb3-58"></a>          )</span>
+<span id="cb3-59"><a href="#cb3-59"></a>        )</span>
+<span id="cb3-60"><a href="#cb3-60"></a>      )</span>
+<span id="cb3-61"><a href="#cb3-61"></a>    })</span>
+<span id="cb3-62"><a href="#cb3-62"></a>    </span>
+<span id="cb3-63"><a href="#cb3-63"></a>    output<span class="op">$</span>distPlot &lt;-<span class="st"> </span><span class="kw">renderPlot</span>({</span>
+<span id="cb3-64"><a href="#cb3-64"></a>     <span class="kw">hist</span>(<span class="kw">rnorm</span>(input<span class="op">$</span>obs))</span>
+<span id="cb3-65"><a href="#cb3-65"></a>    })</span>
+<span id="cb3-66"><a href="#cb3-66"></a>    </span>
+<span id="cb3-67"><a href="#cb3-67"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>update, {</span>
+<span id="cb3-68"><a href="#cb3-68"></a>      <span class="kw">updateUserMessages</span>(</span>
+<span id="cb3-69"><a href="#cb3-69"></a>        <span class="st">&quot;message&quot;</span>, </span>
+<span id="cb3-70"><a href="#cb3-70"></a>        <span class="dt">action =</span> <span class="st">&quot;update&quot;</span>, </span>
+<span id="cb3-71"><a href="#cb3-71"></a>        <span class="dt">index =</span> input<span class="op">$</span>index,</span>
+<span id="cb3-72"><a href="#cb3-72"></a>        <span class="dt">content =</span> <span class="kw">list</span>(</span>
+<span id="cb3-73"><a href="#cb3-73"></a>         <span class="dt">text =</span> <span class="kw">tagList</span>(</span>
+<span id="cb3-74"><a href="#cb3-74"></a>          <span class="kw">appButton</span>(</span>
+<span id="cb3-75"><a href="#cb3-75"></a>           <span class="dt">inputId =</span> <span class="st">&quot;reload&quot;</span>,</span>
+<span id="cb3-76"><a href="#cb3-76"></a>           <span class="dt">label =</span> <span class="st">&quot;Click me!&quot;</span>, </span>
+<span id="cb3-77"><a href="#cb3-77"></a>           <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">&quot;sync&quot;</span>), </span>
+<span id="cb3-78"><a href="#cb3-78"></a>           <span class="kw">dashboardBadge</span>(<span class="dv">1</span>, <span class="dt">color =</span> <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb3-79"><a href="#cb3-79"></a>          )</span>
+<span id="cb3-80"><a href="#cb3-80"></a>         )</span>
+<span id="cb3-81"><a href="#cb3-81"></a>        )</span>
+<span id="cb3-82"><a href="#cb3-82"></a>      )</span>
+<span id="cb3-83"><a href="#cb3-83"></a>    })</span>
+<span id="cb3-84"><a href="#cb3-84"></a>    </span>
+<span id="cb3-85"><a href="#cb3-85"></a>    <span class="kw">observeEvent</span>(input<span class="op">$</span>reload, {</span>
+<span id="cb3-86"><a href="#cb3-86"></a>     <span class="kw">showNotification</span>(<span class="st">&quot;Yeah!&quot;</span>, <span class="dt">duration =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&quot;default&quot;</span>)</span>
+<span id="cb3-87"><a href="#cb3-87"></a>    })</span>
+<span id="cb3-88"><a href="#cb3-88"></a>  }</span>
+<span id="cb3-89"><a href="#cb3-89"></a> )</span></code></pre></div>
+<div class="marvel-device ipad black">
+<div class="camera">
+
+</div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-userMessages/" allowfullscreen frameborder="0" scrolling="yes" height="770px">
+</iframe>
+</div>
+<div class="home">
+
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

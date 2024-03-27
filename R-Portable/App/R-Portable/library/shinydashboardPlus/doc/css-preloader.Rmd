@@ -1,0 +1,56 @@
+---
+title: "CSS preloaders"
+author: "David Granjon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CSS preloaders}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## How to set up a preloader?
+
+Pass the argument `preloader` to the `dashboardPage()` function. It expects a nested list containing all parameters necessary to `waiter::waiterShowOnLoad`. Please have a look to the `{waiter}` 
+[documentation](https://waiter.john-coene.com/) for more details.
+
+That's all!
+
+```{r waiter-code, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+library(shinydashboardPlus)
+library(waiter)
+shinyApp(
+  ui = dashboardPage(
+    preloader = list(html = tagList(spin_1(), "Loading ..."), color = "#3c8dbc"),
+    header = dashboardHeader(),
+    sidebar = dashboardSidebar(),
+    body = dashboardBody(
+      actionButton("reload", "Reload")
+    ),
+    title = "Preloader"
+  ),
+  server = function(input, output, session) {
+    # fake reload
+    observeEvent(input$reload, {
+      session$reload()
+    })
+  }
+)
+```
+
+<div class="marvel-device ipad black">
+<div class="camera"></div>
+<div class="screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/shinydashboardPlus-preloader/" allowfullscreen="" frameborder="0" scrolling="yes" height="770px"></iframe>
+</div>
+<div class="home"></div>
+</div>

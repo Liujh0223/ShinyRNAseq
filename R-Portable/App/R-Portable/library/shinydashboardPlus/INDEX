@@ -1,0 +1,46 @@
+accordion               AdminLTE2 accordion container
+appButton               AdminLTE2 special large button
+attachmentBlock         AdminLTE2 attachment container
+blockQuote              AdminLTE2 block quote
+box                     Create a box for the main body of a dashboard
+boxLabel                Create a label for box
+boxProfile              AdminLTE2 box profile
+boxSidebar              Create a sidebar for a box
+carousel                AdminLTE2 carousel container
+dashboardBadge          AdminLTE2 badge
+dashboardControlbar     AdminLTE2 dashboard right sidebar
+dashboardFooter         Dashboard Footer
+dashboardHeader         Create a header for a dashboard page
+dashboardLabel          AdminLTE2 label
+dashboardPage           Dashboard Page with a right sidebar
+dashboardSidebar        Create a dashboard sidebar.
+dashboardUser           Create a dashboard user profile.
+dashboardUserItem       Create a dashboard user profile item
+dropdownBlock           Create a dropdown block to place in a dashboard
+                        header
+flipBox                 A flipBox based on the W3C example
+loadingState            AdminLTE2 loading state element
+messageItem             Custom messageItem
+navPills                AdminLTE2 nav pill container
+notificationItem        Custom notificationItem
+productList             AdminLTE2 product list container productList
+                        creates a container to display commercial items
+                        in an elegant container. Insert in a box.
+progressBar             AdminLTE2 vertical progress bar
+renderUser              Create dynamic user output (server side)
+shinydashboardPlus      shinydashboardPlus
+shinydashboardPlusGallery
+                        Launch the shinydashboardPlus Gallery
+skinSelector            AdminLTE2 skin selector
+skinSelectorItem        AdminLTE2 skin selector item
+socialBox               AdminLTE2 social box
+socialButton            AdminLTE2 social button
+starBlock               AdminLTE2 starBlock
+taskItem                Custom taskItem
+timelineBlock           AdminLTE2 timeline block
+todoList                AdminLTE2 todo list container
+userBox                 AdminLTE2 user box
+userList                AdminLTE2 user list container
+userMessages            AdminLTE2 user message container
+userOutput              Create a dynamic user output (client side)
+userPost                AdminLTE2 user post
